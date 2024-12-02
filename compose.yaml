@@ -1,0 +1,249 @@
+version: '3.7'
+
+x-minio-common: &minio-common
+  image: quay.io/minio/minio:RELEASE.2024-09-22T00-33-43Z
+  command: server --console-address ":9090" ./mnt/data
+  container_name: "minio"
+  environment:
+    - MINIO_ROOT_USER=minioadmin
+    - MINIO_ROOT_PASSWORD=minioadmin
+  ports:
+    - '9000:9000'  # Port for S3 API
+    - '9090:9090'  # Port for MinIO console
+  healthcheck:
+    test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+    interval: 30s
+    timeout: 20s
+    retries: 3
+
+services:
+  notion-config:
+    hostname: notion-config
+    image: notion-config:latest
+
+    ports:
+      - "8888:8888"
+    networks:
+      - backend
+  notion-eureka:
+    hostname: notion-eureka
+    image: notion-eureka:latest
+    environment:
+      - CONFIG_SERVER_URL=http://notion-config:8888
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+    depends_on:
+      - notion-config
+  notion-gateway:
+    hostname: notion-gateway
+    image: notion-gateway:latest
+    environment:
+      - EUREKA_CLIENT_URL=http://notion-eureka:8761/eureka
+      - CONFIG_SERVER_URL=http://notion-config:8888
+      - GATEWAY_LOG_LEVEL=debug
+    ports:
+      - "8765:8765"
+    networks:
+      - backend
+    depends_on:
+      - notion-config
+      - notion-eureka
+  notion-security:
+    hostname: notion-security
+    image: notion-security:latest
+    environment:
+        - EUREKA_CLIENT_URL=http://notion-eureka:8761/eureka
+        - CONFIG_SERVER_URL=http://notion-config:8888
+        - NOTION_SECURITY_DATABASE_URL=jdbc:postgresql://postgres:5432/notion_security
+    networks:
+      - backend
+    depends_on:
+      - notion-config
+      - notion-eureka
+      - postgres
+  notion-core:
+    hostname: notion-core
+    image: notion-core:latest
+    environment:
+      - NOTION_CORE_DATABASE_URL=jdbc:postgresql://postgres:5432/notion-core
+      - EUREKA_CLIENT_URL=http://notion-eureka:8761/eureka
+      - CONFIG_SERVER_URL=http://notion-config:8888
+      - WEBSOCKET_SERVER_ADDRESS=ws://notion-code-exec:52835/ws
+    networks:
+      - backend
+    depends_on:
+      - notion-config
+      - notion-eureka
+      - postgres
+
+  notion-code-exec:
+    hostname: notion-code-exec
+    image: notion-code-exec:latest
+    environment:
+      - NOTION_CODE_DATABASE_URL=jdbc:postgresql://postgres:5432/notion-code-exec
+      - EUREKA_CLIENT_URL=http://notion-eureka:8761/eureka
+      - CONFIG_SERVER_URL=http://notion-config:8888
+    networks:
+      - backend
+    depends_on:
+      - postgres
+      - python-exec
+      - notion-config
+      - notion-eureka
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    tty: true
+  notion-s3:
+    hostname: notion-s3
+    image: notion-s3:latest
+    environment:
+      - NOTION_S3_DATABASE_URL=r2dbc:postgresql://postgres:5432/notion-s3
+      - EUREKA_CLIENT_URL=http://notion-eureka:8761/eureka
+      - CONFIG_SERVER_URL=http://notion-config:8888
+      - MINIO_ENDPOINT=http://minio1:9000
+    networks:
+      - backend
+    depends_on:
+      - postgres
+      - minio1
+      - notion-eureka
+      - notion-config
+  notion-notification:
+    hostname: notion-notification
+    image: notion-notification:latest
+    environment:
+      - EUREKA_CLIENT_URL=http://notion-eureka:8761/eureka
+      - CONFIG_SERVER_URL=http://notion-config:8888
+    networks:
+      - backend
+    depends_on:
+      - notion-eureka
+      - notion-config
+
+  minio1:
+    <<: *minio-common
+    hostname: minio1
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+      - MINIO_BROWSER=on
+      - MINIO_VOLUMES=/mnt/data
+    volumes:
+      - type: bind
+        source: ./minio_storage/mnt/data/compose
+        target: /mnt/data
+    networks:
+      - backend
+
+  postgres:
+    hostname: postgres
+    image: postgres:16-alpine
+    container_name: "postgres"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - /Users/nikitaivanov/IdeaProjects/notion/init-db:/docker-entrypoint-initdb.d
+    networks:
+      - backend
+
+  python-exec:
+    hostname: python-exec
+    image: python:3.10-slim
+    container_name: python-container
+    command: tail -f /dev/null
+    networks:
+      - backend
+
+  kafka1:
+    image: apache/kafka:latest
+    ports:
+      - 29092:29092
+      - 9092:9092
+    hostname: kafka1
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29092,PLAINTEXT_HOST://0.0.0.0:9092, CONTROLLER://0.0.0.0:19092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka1:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 2
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS:  1@kafka1:19092, 2@kafka2:19092, 3@kafka3:19092
+    volumes:
+      - ./kafka/kafka1/data:/var/lib/kafka/data
+    networks:
+      - backend
+  kafka2:
+    image: apache/kafka:latest
+    ports:
+      - 29093:29092
+      - 9093:9092
+    hostname: kafka2
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29093,PLAINTEXT_HOST://0.0.0.0:9093, CONTROLLER://0.0.0.0:19092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka2:29093,PLAINTEXT_HOST://localhost:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 2
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS:  1@kafka1:19092, 2@kafka2:19092, 3@kafka3:19092
+    volumes:
+      - ./kafka/kafka2/data:/var/lib/kafka/data
+    networks:
+      - backend
+  kafka3:
+    image: apache/kafka:latest
+    ports:
+      - 29094:29092
+      - 9094:9092
+    hostname: kafka3
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:29094,PLAINTEXT_HOST://0.0.0.0:9094, CONTROLLER://0.0.0.0:19092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka3:29094,PLAINTEXT_HOST://localhost:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 2
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka1:19092, 2@kafka2:19092, 3@kafka3:19092
+    volumes:
+      - ./kafka/kafka3/data:/var/lib/kafka/data
+    networks:
+      - backend
+  kafka-ui:
+    image: provectuslabs/kafka-ui
+    container_name: kafka-ui
+    ports:
+      - 8090:8080
+    restart: always
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka1:29092,kafka2:29093,kafka3:29094
+    links:
+      - kafka1
+      - kafka2
+      - kafka3
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    name: notion_backend
