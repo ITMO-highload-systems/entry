@@ -149,7 +149,7 @@ services:
       - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - /Users/nikitaivanov/IdeaProjects/notion/init-db:/docker-entrypoint-initdb.d
+      - ./init-db:/docker-entrypoint-initdb.d
     networks:
       - backend
 

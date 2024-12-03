@@ -4,21 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d473a7bf-cf8e-47e8-965b-655cdda899bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/cloned_repositories/core/compose.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloned_repositories/core/init-db/init-databases.sql" beforeDir="false" />
-    </list>
+    <list default="true" id="d473a7bf-cf8e-47e8-965b-655cdda899bd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/cloned_repositories/code-exec" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -35,8 +35,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/nikitaivanov/IdeaProjects/entry",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -100,6 +101,7 @@
       <updated>1733130561540</updated>
       <workItem from="1733130563123" duration="6442000" />
       <workItem from="1733142884378" duration="220000" />
+      <workItem from="1733144182455" duration="4517000" />
     </task>
     <servers />
   </component>
