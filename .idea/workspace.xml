@@ -4,7 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d473a7bf-cf8e-47e8-965b-655cdda899bd" name="Changes" comment="" />
+    <list default="true" id="5dd01cb3-6490-4a12-a1a5-96f70884423a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab9ed22b-e7b7-48ce-83db-6c580b6cbb4c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab9ed22b-e7b7-48ce-83db-6c580b6cbb4c/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab9ed22b-e7b7-48ce-83db-6c580b6cbb4c/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab9ed22b-e7b7-48ce-83db-6c580b6cbb4c/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab9ed22b-e7b7-48ce-83db-6c580b6cbb4c/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/.bloomcycle.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/.bloomcycle.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/.usage-cache.bin.bkp/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/.usage-cache.bin.bkp/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/.usage-cache.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/.usage.json/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/.usage.json/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/my-bucket/.metadata.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/my-bucket/.metadata.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/my-bucket/.usage-cache.bin.bkp/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/my-bucket/.usage-cache.bin.bkp/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/my-bucket/.usage-cache.bin/xl.meta" beforeDir="false" afterPath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/buckets/my-bucket/.usage-cache.bin/xl.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/01d93401-c13e-4db3-97a3-9a10b0133017/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/085ebfb9-45d1-4d41-bfe3-eb876f7e06ad/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/0a3386ca-c879-49e8-967d-ba98bd9daafe/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/23ef7a0b-cb6a-4dd0-ad57-3a55ca132288/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/2a608cda-03d5-41a1-a325-27d486fa64a3/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/2aa6ddca-0007-458b-9f08-77104905c73e/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/345c5645-d154-45a5-bda2-822ebb995014/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/3c04b9dd-ef89-495d-9b20-f33b0d9dd492/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/673d8d46-d052-43b2-841f-e628263cb9f5/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/6973ea86-b8a6-4ec5-8a89-1e0872c021b7/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/6c4c3de2-db1d-4621-8f79-04f9c004c5ec/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/748cdd7d-51ff-4302-9ce8-092843ff23cd/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/83f95855-bae9-4aba-8a95-e126b7090e76/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/91943a71-d0d6-44db-b353-5743f0993b91/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/a6b85d9b-a5b1-4b31-bad4-3e4fc0c1e3ae/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/a78dfc10-9908-4835-80eb-d2b1c61fc051/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/ac461efe-14f4-4202-a3f3-3c8261d187ee/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/b33db7e3-ec73-4aab-891d-811429bcd350/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/b89f8805-b1d5-4b8d-ba6c-d5a09a809410/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/c7c02702-cdc3-4719-ae6c-5a503dbc6137/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/ca3ef778-0cba-4885-a465-8943c4429081/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/ced19723-3faf-4dca-9a42-13c2741540e7/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/e1e7d97e-5dd1-4d6f-b6d5-01f3e19555df/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/.trash/f934d82f-14a6-47a0-b3e6-a07540958b8a/xl.meta.bkp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/minio_storage/mnt/data/compose/.minio.sys/tmp/8dcfdbe7-89ac-4901-b2fe-67782ee3545c" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,110 +56,55 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
-}</component>
-  <component name="ProjectId" id="2peddOAaO1Rh9zGuiWa1tsFfrYg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/ITMO-highload-systems/entry.git",
+    "accountId": "c334d307-d816-432a-a01c-d1ad098a81c8"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2phrFROsxO2suUrZQjm7VmQYsxd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Docker.core/compose.yaml.notion-config: Compose Deployment.executor": "Run",
-    "Docker.core/compose.yaml.notion-eureka: Compose Deployment.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/nikitaivanov/IdeaProjects/entry",
+    "last_opened_file_path": "/Users/a.s.lushnikova/IdeaProjects/notion/entry",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/init-db" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Docker.compose.yaml.notion-config: Compose Deployment">
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="compose.yaml.notion-config: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="notion-config" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="compose.yaml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="compose.yaml.notion-eureka: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="notion-eureka" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="compose.yaml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d473a7bf-cf8e-47e8-965b-655cdda899bd" name="Changes" comment="" />
-      <created>1733130561540</created>
+      <changelist id="5dd01cb3-6490-4a12-a1a5-96f70884423a" name="Changes" comment="" />
+      <created>1733229043978</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1733130561540</updated>
-      <workItem from="1733130563123" duration="6442000" />
-      <workItem from="1733142884378" duration="220000" />
-      <workItem from="1733144182455" duration="4517000" />
+      <updated>1733229043978</updated>
+      <workItem from="1733229045211" duration="4375000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
